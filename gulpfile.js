@@ -31,7 +31,7 @@ export const styles = () => {
 // HTML
 
 const html = () => {
-  return gulp.src('source/*.html')
+  return gulp.src('source/html/*.html')
     .pipe(htmlmin({
       removeComments: true,
       collapseWhitespace: true }))
@@ -125,7 +125,7 @@ const server = (done) => {
 
 const watcher = () => {
   gulp.watch('source/scss/**/*.scss', gulp.series(styles));
-  gulp.watch('source/*.html', gulp.series(html)).on('change', browser.reload);
+  gulp.watch('source/html/*.html', gulp.series(html)).on('change', browser.reload);
 }
 
 
