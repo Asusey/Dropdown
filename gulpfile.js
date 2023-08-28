@@ -8,7 +8,8 @@ import postUrl from 'postcss-url';
 import autoprefixer from 'autoprefixer';
 import csso from 'postcss-csso';
 import terser from 'gulp-terser';
-import squoosh from 'gulp-libsquoosh';
+import imagemin from 'gulp-imagemin';
+import webp from 'gulp-webp';
 import svgo from 'gulp-svgmin';
 import { stacksvg } from "gulp-stacksvg";
 import { deleteAsync } from 'del';
@@ -36,11 +37,11 @@ export function validateMarkup () {
 }
 
 export function processStyles () {
-  return gulp.src('source/sass/*.scss', { sourcemaps: isDevelopment })
+  return gulp.src('source/scss/*.scss', { sourcemaps: isDevelopment })
     .pipe(plumber())
     .pipe(sass().on('error', sass.logError))
     .pipe(postcss([
-      postUrl({ assetsPath: '../' }),
+      postUrl({ assetsPath: '../build/img' }),
       autoprefixer(),
       csso()
     ]))
@@ -57,15 +58,13 @@ export function processScripts () {
 
 export function optimizeImages () {
   return gulp.src('source/img/**/*.{png,jpg}')
-    .pipe(gulpIf(!isDevelopment, squoosh()))
+    .pipe(imagemin())
     .pipe(gulp.dest('build/img'))
 }
 
 export function createWebp () {
   return gulp.src('source/img/**/*.{png,jpg}')
-    .pipe(squoosh({
-      webp: {}
-    }))
+    .pipe(gulpIf(isDevelopment, webp()))
     .pipe(gulp.dest('build/img'))
 }
 
@@ -79,14 +78,14 @@ export function createStack () {
   return gulp.src('source/img/icons/**/*.svg')
     .pipe(svgo())
     .pipe(stacksvg())
-    .pipe(gulp.dest('build/img/icons'));
+    .pipe(gulp.dest('build/img/'));
 }
 
 export function copyAssets () {
   return gulp.src([
     'source/fonts/**/*.{woff2,woff}',
     'source/*.ico',
-    'source/*.webmanifest',
+    'source/manifest.json',
   ], {
     base: 'source'
   })
@@ -111,7 +110,7 @@ function reloadServer (done) {
 }
 
 function watchFiles () {
-  gulp.watch('source/sass/**/*.scss', gulp.series(processStyles));
+  gulp.watch('source/scss/**/*.scss', gulp.series(processStyles));
   gulp.watch('source/js/script.js', gulp.series(processScripts));
   gulp.watch('source/*.html', gulp.series(processMarkup, reloadServer));
 }
