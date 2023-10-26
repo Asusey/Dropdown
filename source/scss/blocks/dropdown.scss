@@ -1,0 +1,11 @@
+.dropdown {
+  display: none;
+  position: relative;
+  max-width: 320px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px 0 $color-shadow, 0 4px 32px 0 $color-shadow;
+
+  &.is-active {
+    display: block;
+  }
+}

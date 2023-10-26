@@ -1,0 +1,56 @@
+.form {
+  max-width: 320px;
+
+  &__button {
+    position: relative;
+    padding: 16px 39px 14px;
+    margin-bottom: 8px;
+    border-radius: 12px;
+    background-color: $color-neutral;
+    border: 1px solid $color-border-primary;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 16px;
+    letter-spacing: -0.02em;
+    width: 100%;
+    text-align: left;
+    transition: border $trans-default;
+
+    @include hover {
+      border: 1px solid $color-tertiary;
+    }
+
+    svg {
+      position: absolute;
+      left: 15px;
+      top: 15px;
+    }
+  }
+
+  &__title {
+    margin: 0 0 2px;
+    padding: 0;
+  }
+
+  &__button-counter {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: $color-default-white;
+    top: 6px;
+    right: 6px;
+    width: 31px;
+    height: 31px;
+    border: 1px solid rgba(7,0,15,.1);
+    background-color: $color-accent;
+    border-radius: 50%;
+    visibility: hidden;
+    transition: visibility $trans-default;
+  }
+  &__button-counter.is-active {
+    visibility: visible;
+  }
+}
+
+

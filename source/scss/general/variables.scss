@@ -6,25 +6,30 @@ $mobile-width: 767px;
 
 // Fonts
 
-$general-font: "Open Sans", "Arial", sans-serif;
+$font-stack: "Roboto Condensed", "Arial", sans-serif;
+$font: "Arial", sans-serif;
 
 // Colors
 
-$white: #ffffff;
-$black: #000000;
-$aubergine: #231f20;
-$charcoal: #444444;
-$downy: #63d1bb;
-$downy2: #62d1ba;
-$puerto-rico: #56c3b2;
-$puerto-rico2: #46c1ae;
-$dark-cyan: #149080;
-$whisper: #e6e6e6;
-$snow: #f9f9f9;
-$gallery: #ececec;
-$white-smoke: #f1f1f1;
-$whisper2: #e5e5e5;
-$error: #ff3333;
+$color-default-black:               #000000;
+$color-default-white:               #ffffff;
+$color-transparent:                 rgba(255, 255, 255, 0);
+$color-venetian-red:                #ff0000;
+
+$color-primary:                     #07000f;
+$color-accent:                      #0067fe;
+$color-accent-hover:                #085edB;
+$color-secondary:                   rgba(7, 0, 15, 0.7);
+$color-tertiary:                    rgba(7, 0, 15, 0.4);
+$color-neutral:                     rgba(2, 22, 45, 0.05);
+$color-border-primary:              rgba(7, 0, 15, 0.1);
+$color-shadow:                      rgba(0, 0, 0, 0.02);
+
+// Animation
+// ---------------------------------
+
+$tf-default:                        ease;
+$trans-default:                     0.3s $tf-default;
 
 // General
 
@@ -35,7 +40,7 @@ html {
 
 body {
   min-width: 320px;
-  font-family: $general-font;
+  font-family: $font;
   //Sticky footer
   display: flex;
   flex-direction: column;
@@ -52,4 +57,8 @@ img {
 //Sticky footer
 .main {
   flex-grow: 1;
+}
+
+a {
+  text-decoration: none;
 }

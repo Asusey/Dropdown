@@ -1,0 +1,125 @@
+.custom-toggle {
+  position: relative;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
+
+  display: flex;
+  flex-wrap: wrap;
+
+  &__label {
+    color: $color-primary;
+  }
+
+  @include hover {
+    label {
+      color: $color-primary;
+      background-color: $color-neutral;
+    }
+    .custom-toggle__icon {
+      border: 1px solid $color-border-primary;
+      // background-color: $color-neutral;
+      transition: background-color $trans-default;
+    }
+
+    input:checked + .custom-toggle__icon {
+      background-color: $color-accent-hover;
+    }
+
+    input:disabled + .custom-toggle__icon {
+      background-color: $color-default-white;
+      border: 1px solid $color-border-primary;
+      opacity: 0.5;
+    }
+  }
+
+  input {
+    position: absolute;
+
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+
+    clip: rect(0 0 0 0);
+
+    @include focus {
+      + .custom-toggle__icon {
+        outline: 1px solid $color-border-primary;
+      }
+    }
+  }
+
+  label {
+    position: relative;
+    width: 100%;
+    padding-left: 15px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+
+    font-family: $font;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    user-select: none;
+
+    cursor: pointer;
+
+
+    span {
+      margin-bottom: 0;
+      margin-left: 0;
+    }
+
+    .custom-toggle__icon {
+      cursor: pointer;
+    }
+
+    .custom-toggle__label {
+      cursor: pointer;
+    }
+  }
+
+  &--checkbox {
+    .custom-toggle__icon {
+      position: absolute;
+      top: 7px;
+      right: 13px;
+      width: 31px;
+      height: 31px;
+
+      border: 1px solid $color-border-primary;
+      border-radius: 50%;
+    }
+  }
+
+  input:checked + .custom-toggle__icon {
+    background-color: $color-accent;
+    transition: background-color $trans-default;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      background: url("../../img/checkbox.svg") no-repeat center;
+
+      width: 20px;
+      height: 20px;
+
+      transform: translate(-50%, -50%);
+      transition: opacity $trans-default;
+    }
+  }
+
+  input:disabled + .custom-toggle__icon {
+    background-color: $color-default-white;
+    border: 1px solid $color-border-primary;
+    opacity: 0.5;
+  }
+
+  &.is-invalid {
+    label span {
+      color: $color-venetian-red;
+    }
+  }
+}

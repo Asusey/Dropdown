@@ -1,43 +1,341 @@
 <!DOCTYPE html>
 <html class="page" lang="ru">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="css/style.css">
-  <title>Empty page</title>
-  <!--  preload-->
-  <link rel="preload" href="css/style.css" as="style" crossorigin="anonymous">
-  <link rel="preload" href="fonts/opensans.woff2" as="font" crossorigin="anonymous">
-  <link rel="preload" href="fonts/opensansbold.woff2" as="font" crossorigin="anonymous">
-  <!--  favicons start-->
-  <link rel="icon" href="favicon.ico">
-  <link rel="apple-touch-icon" sizes="57x57" href="img/favicons/apple-icon-57x57.png">
-  <link rel="apple-touch-icon" sizes="60x60" href="img/favicons/apple-icon-60x60.png">
-  <link rel="apple-touch-icon" sizes="72x72" href="img/favicons/apple-icon-72x72.png">
-  <link rel="apple-touch-icon" sizes="76x76" href="img/favicons/apple-icon-76x76.png">
-  <link rel="apple-touch-icon" sizes="114x114" href="img/favicons/apple-icon-114x114.png">
-  <link rel="apple-touch-icon" sizes="120x120" href="img/favicons/apple-icon-120x120.png">
-  <link rel="apple-touch-icon" sizes="144x144" href="img/favicons/apple-icon-144x144.png">
-  <link rel="apple-touch-icon" sizes="152x152" href="img/favicons/apple-icon-152x152.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="img/favicons/apple-icon-180x180.png">
-  <link rel="icon" type="image/png" sizes="192x192"  href="img/favicons/android-icon-192x192.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="img/favicons/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="96x96" href="img/favicons/favicon-96x96.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="img/favicons/favicon-16x16.png">
-  <link rel="manifest" href="manifest.json">
-  <meta name="msapplication-TileColor" content="#ffffff">
-  <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
-  <meta name="theme-color" content="#ffffff">
-  <!--  favicons end-->
-</head>
-<body>
-<header class="main-header">
-</header>
-<main class="main">
-</main>
-<footer class="footer">
-</footer>
-<script src="js/mobile-menu.js"></script>
-<script src="js/location.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Dropdown</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- <link rel="preload" href="fonts/roboto-condensed-v27-cyrillic_latin-500.woff2" as="font" crossorigin="anonymous">
+    <link rel="preload" href="fonts/roboto-condensed-v27-cyrillic_latin-regular.woff2" as="font" crossorigin="anonymous"> -->
+    <!-- <link rel="manifest" href="manifest.json"> -->
+  </head>
+  <body class="page__body">
+    <header class="main-header">
+    </header>
+    <main class="main">
+      <div class="form">
+        <form action="#" method="get">
+          <p class="form__title">Локация</p>
+          <button class="button form__button" type="button" aria-label="Выбрать фильтры">
+            <svg width="16" height="16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7.5 13a5.5 5.5 0 100-11 5.5 5.5 0 000 11z" stroke="#080908" stroke-width="2" stroke-linecap="square"/><path d="M12 12l2 2" stroke="#080908" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>ЖК, Округ, район, метро</span>
+            <span class="form__button-counter"></span>
+          </button>
+          <div class="dropdown">
+            <div class="tabs tabs--unset" data-tabs="parent" data-delay="300" data-height="unset">
+              <div class="tabs__controls" data-tabs="controls">
+                <button class="tabs__control btn" type="button" data-tabs="control"><span>ЖК</span></button>
+                <button class="tabs__control btn" type="button" data-tabs="control"><span>Округ</span></button>
+                <button class="tabs__control btn" type="button" data-tabs="control"><span>Район</span></button>
+                <button class="tabs__control btn" type="button" data-tabs="control"><span>Метро</span></button>
+              </div>
+
+
+              <div class="check-option-block" id="check-option-block"></div>
+
+
+              <div class="tabs__content" data-tabs="content">
+                <div class="tabs__element" data-tabs="element">
+                  <div class="custom-toggle custom-toggle--checkbox option-item option-item">
+                    <label>
+                      <input type="checkbox" value="user-agreement-1" data-name="Академический">
+                      <span class="custom-toggle__icon"></span>
+                      <span class="custom-toggle__label">Академический</span>
+                    </label>
+                  </div>
+                  <div class="custom-toggle custom-toggle--checkbox option-item">
+                    <label>
+                      <input type="checkbox" value="user-agreement-1" data-name="Басманный">
+                      <span class="custom-toggle__icon"></span>
+                      <span class="custom-toggle__label">Басманный</span>
+                    </label>
+                  </div>
+                  <div class="custom-toggle custom-toggle--checkbox option-item">
+                    <label>
+                      <input type="checkbox" value="user-agreement-1" data-name="Замоскворечье">
+                      <span class="custom-toggle__icon"></span>
+                      <span class="custom-toggle__label">Замоскворечье</span>
+                    </label>
+                  </div>
+                  <div class="custom-toggle custom-toggle--checkbox option-item">
+                    <label>
+                      <input type="checkbox" value="user-agreement-1" data-name="Измайлово">
+                      <span class="custom-toggle__icon"></span>
+                      <span class="custom-toggle__label">Измайлово</span>
+                    </label>
+                  </div>
+                  <div class="custom-toggle custom-toggle--checkbox option-item">
+                    <label>
+                      <input type="checkbox" value="user-agreement-1" data-name="Люблино">
+                      <span class="custom-toggle__icon"></span>
+                      <span class="custom-toggle__label">Люблино</span>
+                    </label>
+                  </div>
+                  <div class="custom-toggle custom-toggle--checkbox option-item">
+                    <label>
+                      <input type="checkbox" value="user-agreement-1" data-name="Замоскворечье">
+                      <span class="custom-toggle__icon"></span>
+                      <span class="custom-toggle__label">Замоскворечье</span>
+                    </label>
+                  </div>
+                  <div class="custom-toggle custom-toggle--checkbox option-item">
+                    <label>
+                      <input type="checkbox" value="user-agreement-1" data-name="Замоскворечье">
+                      <span class="custom-toggle__icon"></span>
+                      <span class="custom-toggle__label">Замоскворечье</span>
+                    </label>
+                  </div>
+                  <div class="custom-toggle custom-toggle--checkbox option-item">
+                    <label>
+                      <input type="checkbox" value="user-agreement-1" data-name="Замоскворечье">
+                      <span class="custom-toggle__icon"></span>
+                      <span class="custom-toggle__label">Замоскворечье</span>
+                    </label>
+                  </div>
+                  <div class="custom-toggle custom-toggle--checkbox option-item">
+                    <label>
+                      <input type="checkbox" value="user-agreement-1" data-name="Замоскворечье">
+                      <span class="custom-toggle__icon"></span>
+                      <span class="custom-toggle__label">Замоскворечье</span>
+                    </label>
+                  </div>
+                  <div class="custom-toggle custom-toggle--checkbox option-item">
+                    <label>
+                      <input type="checkbox" value="user-agreement-1" data-name="Замоскворечье">
+                      <span class="custom-toggle__icon"></span>
+                      <span class="custom-toggle__label">Замоскворечье</span>
+                    </label>
+                  </div>
+                </div>
+
+                <div class="tabs__element" data-tabs="element">
+                  <div class="custom-toggle custom-toggle--checkbox option-item">
+                    <label>
+                      <input type="checkbox" value="user-agreement-1" data-name="Центральный">
+                      <span class="custom-toggle__icon"></span>
+                      <span class="custom-toggle__label">Центральный</span>
+                    </label>
+                  </div>
+                  <div class="custom-toggle custom-toggle--checkbox option-item">
+                    <label>
+                      <input type="checkbox" value="user-agreement-1" data-name="Северный">
+                      <span class="custom-toggle__icon"></span>
+                      <span class="custom-toggle__label">Северный</span>
+                    </label>
+                  </div>
+                  <div class="custom-toggle custom-toggle--checkbox option-item">
+                    <label>
+                      <input type="checkbox" value="user-agreement-1" data-name="Северо-Восточный">
+                      <span class="custom-toggle__icon"></span>
+                      <span class="custom-toggle__label">Северо-Восточный</span>
+                    </label>
+                  </div>
+                  <div class="custom-toggle custom-toggle--checkbox option-item">
+                    <label>
+                      <input type="checkbox" value="user-agreement-1" data-name="Восточный">
+                      <span class="custom-toggle__icon"></span>
+                      <span class="custom-toggle__label">Восточный</span>
+                    </label>
+                  </div>
+                  <div class="custom-toggle custom-toggle--checkbox option-item">
+                    <label>
+                      <input type="checkbox" value="user-agreement-1" data-name="Юго-Восточный">
+                      <span class="custom-toggle__icon"></span>
+                      <span class="custom-toggle__label">Юго-Восточный</span>
+                    </label>
+                  </div>
+                  <div class="custom-toggle custom-toggle--checkbox option-item">
+                    <label>
+                      <input type="checkbox" value="user-agreement-1" data-name="Южный">
+                      <span class="custom-toggle__icon"></span>
+                      <span class="custom-toggle__label">Южный</span>
+                    </label>
+                  </div>
+                  <div class="custom-toggle custom-toggle--checkbox option-item">
+                    <label>
+                      <input type="checkbox" value="user-agreement-1" data-name="Юго-Западный">
+                      <span class="custom-toggle__icon"></span>
+                      <span class="custom-toggle__label">Юго-Западный</span>
+                    </label>
+                  </div>
+                  <div class="custom-toggle custom-toggle--checkbox option-item">
+                    <label>
+                      <input type="checkbox" value="user-agreement-1" data-name="Западный">
+                      <span class="custom-toggle__icon"></span>
+                      <span class="custom-toggle__label">Западный</span>
+                    </label>
+                  </div>
+                  <div class="custom-toggle custom-toggle--checkbox option-item">
+                    <label>
+                      <input type="checkbox" value="user-agreement-1" data-name="Северо-Западный">
+                      <span class="custom-toggle__icon"></span>
+                      <span class="custom-toggle__label">Северо-Западный</span>
+                    </label>
+                  </div>
+                  <div class="custom-toggle custom-toggle--checkbox option-item">
+                    <label>
+                      <input type="checkbox" value="user-agreement-1" data-name="Троицкий">
+                      <span class="custom-toggle__icon"></span>
+                      <span class="custom-toggle__label">Троицкий</span>
+                    </label>
+                  </div>
+                </div>
+
+                <div class="tabs__element" data-tabs="element">
+                  <div class="custom-toggle custom-toggle--checkbox option-item">
+                    <label>
+                      <input type="checkbox" value="user-agreement-1" data-name="Черкизовская">
+                      <span class="custom-toggle__icon"></span>
+                      <span class="custom-toggle__label">Черкизовская</span>
+                    </label>
+                  </div>
+                  <div class="custom-toggle custom-toggle--checkbox option-item">
+                    <label>
+                      <input type="checkbox" value="user-agreement-1" data-name="Сокольники">
+                      <span class="custom-toggle__icon"></span>
+                      <span class="custom-toggle__label">Сокольники</span>
+                    </label>
+                  </div>
+                  <div class="custom-toggle custom-toggle--checkbox option-item">
+                    <label>
+                      <input type="checkbox" value="user-agreement-1" data-name="Красносельская">
+                      <span class="custom-toggle__icon"></span>
+                      <span class="custom-toggle__label">Красносельская</span>
+                    </label>
+                  </div>
+                  <div class="custom-toggle custom-toggle--checkbox option-item">
+                    <label>
+                      <input type="checkbox" value="user-agreement-1" data-name="Комсомольская">
+                      <span class="custom-toggle__icon"></span>
+                      <span class="custom-toggle__label">Комсомольская</span>
+                    </label>
+                  </div>
+                  <div class="custom-toggle custom-toggle--checkbox option-item">
+                    <label>
+                      <input type="checkbox" value="user-agreement-1" data-name="Лубянка">
+                      <span class="custom-toggle__icon"></span>
+                      <span class="custom-toggle__label">Лубянка</span>
+                    </label>
+                  </div>
+                  <div class="custom-toggle custom-toggle--checkbox option-item">
+                    <label>
+                      <input type="checkbox" value="user-agreement-1" data-name="Кропоткинская">
+                      <span class="custom-toggle__icon"></span>
+                      <span class="custom-toggle__label">Кропоткинская</span>
+                    </label>
+                  </div>
+                  <div class="custom-toggle custom-toggle--checkbox option-item">
+                    <label>
+                      <input type="checkbox" value="user-agreement-1" data-name="Фрунзенская">
+                      <span class="custom-toggle__icon"></span>
+                      <span class="custom-toggle__label">Фрунзенская</span>
+                    </label>
+                  </div>
+                  <div class="custom-toggle custom-toggle--checkbox option-item">
+                    <label>
+                      <input type="checkbox" value="user-agreement-1" data-name="Спортивная">
+                      <span class="custom-toggle__icon"></span>
+                      <span class="custom-toggle__label">Спортивная</span>
+                    </label>
+                  </div>
+                  <div class="custom-toggle custom-toggle--checkbox option-item">
+                    <label>
+                      <input type="checkbox" value="user-agreement-1" data-name="Университет">
+                      <span class="custom-toggle__icon"></span>
+                      <span class="custom-toggle__label">Университет</span>
+                    </label>
+                  </div>
+                  <div class="custom-toggle custom-toggle--checkbox option-item">
+                    <label>
+                      <input type="checkbox" value="user-agreement-1" data-name="Тропарёво">
+                      <span class="custom-toggle__icon"></span>
+                      <span class="custom-toggle__label">Тропарёво</span>
+                    </label>
+                  </div>
+                </div>
+                <div class="tabs__element" data-tabs="element">
+                  <div class="custom-toggle custom-toggle--checkbox option-item">
+                    <label>
+                      <input type="checkbox" value="user-agreement-1" data-name="Румянцево">
+                      <span class="custom-toggle__icon"></span>
+                      <span class="custom-toggle__label">Румянцево</span>
+                    </label>
+                  </div>
+                  <div class="custom-toggle custom-toggle--checkbox option-item">
+                    <label>
+                      <input type="checkbox" value="user-agreement-1" data-name="Саларьево">
+                      <span class="custom-toggle__icon"></span>
+                      <span class="custom-toggle__label">Саларьево</span>
+                    </label>
+                  </div>
+                  <div class="custom-toggle custom-toggle--checkbox option-item">
+                    <label>
+                      <input type="checkbox" value="user-agreement-1" data-name="Прокшино">
+                      <span class="custom-toggle__icon"></span>
+                      <span class="custom-toggle__label">Прокшино</span>
+                    </label>
+                  </div>
+                  <div class="custom-toggle custom-toggle--checkbox option-item">
+                    <label>
+                      <input type="checkbox" value="user-agreement-1" data-name="Войковская">
+                      <span class="custom-toggle__icon"></span>
+                      <span class="custom-toggle__label">Войковская</span>
+                    </label>
+                  </div>
+                  <div class="custom-toggle custom-toggle--checkbox option-item">
+                    <label>
+                      <input type="checkbox" value="user-agreement-1" data-name="Аэропорт">
+                      <span class="custom-toggle__icon"></span>
+                      <span class="custom-toggle__label">Аэропорт</span>
+                    </label>
+                  </div>
+                  <div class="custom-toggle custom-toggle--checkbox option-item">
+                    <label>
+                      <input type="checkbox" value="user-agreement-1" data-name="Сокол">
+                      <span class="custom-toggle__icon"></span>
+                      <span class="custom-toggle__label">Сокол</span>
+                    </label>
+                  </div>
+                  <div class="custom-toggle custom-toggle--checkbox option-item">
+                    <label>
+                      <input type="checkbox" value="user-agreement-1" data-name="Белорусская">
+                      <span class="custom-toggle__icon"></span>
+                      <span class="custom-toggle__label">Белорусская</span>
+                    </label>
+                  </div>
+                  <div class="custom-toggle custom-toggle--checkbox option-item">
+                    <label>
+                      <input type="checkbox" value="user-agreement-1" data-name="Павелецкая">
+                      <span class="custom-toggle__icon"></span>
+                      <span class="custom-toggle__label">Павелецкая</span>
+                    </label>
+                  </div>
+                  <div class="custom-toggle custom-toggle--checkbox option-item">
+                    <label>
+                      <input type="checkbox" value="user-agreement-1" data-name="Технопарк">
+                      <span class="custom-toggle__icon"></span>
+                      <span class="custom-toggle__label">Технопарк</span>
+                    </label>
+                  </div>
+                  <div class="custom-toggle custom-toggle--checkbox option-item">
+                    <label>
+                      <input type="checkbox" value="user-agreement-1" data-name="Каширская">
+                      <span class="custom-toggle__icon"></span>
+                      <span class="custom-toggle__label">Каширская</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </main>
+    <footer class="footer">
+    </footer>
+  <script type="module" src="js/script.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  </body>
 </html>

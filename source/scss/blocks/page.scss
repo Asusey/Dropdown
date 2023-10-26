@@ -1,0 +1,16 @@
+.page {
+  min-width: 320px;
+  height: 100%;
+  font-size: 14px;
+  font-family: $font-stack;
+  line-height: 24px;
+}
+
+.page__body {
+  min-height: 100%;
+  margin: 0 auto;
+  color: $color-primary;
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+}

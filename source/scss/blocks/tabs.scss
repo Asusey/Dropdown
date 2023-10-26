@@ -1,0 +1,118 @@
+.tabs {
+  max-width: 100%;
+
+  [data-tabs="accordion"] {
+    @media screen and (max-width: 767px) {
+      margin: 10px 2% 0;
+    }
+
+    > .tabs__control.is-active {
+      pointer-events: auto;
+      opacity: 0.5;
+    }
+  }
+
+  [data-tabs="accordion"].is-active {
+    > .tabs__control {
+      opacity: 1;
+    }
+  }
+
+  &__controls {
+    display: flex;
+    width: 100%;
+    padding-left: 10px;
+    border-bottom: 1px solid $color-border-primary;
+
+    @media screen and (max-width: 767px) {
+      flex-wrap: wrap;
+    }
+  }
+
+  &__control {
+    background-color: $color-transparent;
+
+    text-transform: uppercase;
+    cursor: pointer;
+    opacity: 0.4;
+    min-width: auto;
+    justify-content: center;
+    user-select: none;
+    transition: opacity $trans-default;
+
+    &.is-active {
+      opacity: 1;
+      pointer-events: none;
+
+      span {
+        position: relative;
+        height: 100%;
+      }
+
+      span::after {
+        position: absolute;
+        content: "";
+        width: 100%;
+        height: 1px;
+        background-color: $color-primary;
+        bottom: -10px;
+        left: 0;
+      }
+    }
+  }
+
+  &__control:hover {
+    opacity: 1;
+  }
+
+  &__content {
+    overflow-y: scroll;
+    transition: height 0.3s;
+  }
+
+  &__element {
+    width: 100%;
+    padding-top: 8px;
+    padding-bottom: 55px;
+  }
+
+  &--unset .tabs__content {
+    height: 303px;
+    overflow-y: scroll;
+  }
+
+  &--unset .tabs__element {
+    height: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    max-height: 342px;
+  }
+
+  &--unset {
+    position: relative;
+    max-width: 320px;
+    background-color: $color-default-white;
+    border-radius: 12px;
+    border: 1px solid $color-border-primary;
+
+    &::after {
+      position: absolute;
+      content: "";
+      width: 100%;
+      height: 80px;
+      bottom: -2px;
+      left: 0;
+      border-bottom-left-radius: 12px;
+      border-bottom-right-radius: 12px;
+      background: url('../../img/gradient.png');
+      z-index: 10;
+      overflow-y: scroll;
+    }
+  }
+}
+
+.tabs__control.is-active:hover {
+  span::after {
+    height: 2px;
+  }
+}
